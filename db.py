@@ -20,4 +20,3 @@ async def db_init():
     )
     # Generate the schema
     await Tortoise.generate_schemas()
-A
