@@ -20,7 +20,7 @@ class Parser(object):
         return cls.instance
 
     async def parse_user(self, user: TelegramUser):
-        resp = requests.get(f'https://kwork.ru/projects?keyword={user.format_words}&c=all')
+        resp = requests.get(f'https://kwork.ru/projects?keyword={await user.format_words}&c=all')
         soup = bs4(resp.content, 'html.parser')
         pool = []
         for element in soup.find_all('div', class_='wants-card__header-title'):

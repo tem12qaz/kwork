@@ -9,7 +9,7 @@ class TelegramUser(Model):
     state = fields.CharField(16)
 
     @property
-    def format_words(self):
+    async def format_words(self):
         string = ''
         for word in await self.keywords.all():
             string += word.text
