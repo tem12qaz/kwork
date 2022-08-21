@@ -1,11 +1,5 @@
-import io
-import os
-import asyncio
-import traceback
-
 from aiogram import types
-from aiogram.dispatcher.filters import CommandStart, CommandHelp
-from aiogram.types import KeyboardButton, ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.dispatcher.filters import CommandStart
 
 from config import ADMINS
 from kewboards import get_keywords_keyboard, get_main_keyboard, main_callback, cancel_keyboard
@@ -111,5 +105,4 @@ async def listen_handler(message: types.Message):
         pass
 
     await Keyword.create(owner=user, text=message.text)
-    await message.answer('Слово добавлено', reply_markup=get_main_keyboard())
-
+    await message.answer('Слово добавлено', reply_markup=get_main_keyboard(user))
