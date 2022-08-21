@@ -6,7 +6,7 @@ class TelegramUser(Model):
     id = fields.IntField(pk=True)
     telegram_id = fields.BigIntField(unique=True, index=True)
     active = fields.BooleanField(default=True)
-    state = fields.CharField(16)
+    state = fields.CharField(16, default='')
 
     @property
     async def format_words(self):

@@ -18,7 +18,7 @@ async def bot_start(message: types.Message):
     user = await TelegramUser.get_or_none(telegram_id=message.from_user.id)
     if user is None:
         user = await TelegramUser.create(
-            telegram_id=message.from_user.id, username=message.from_user.username
+            telegram_id=message.from_user.id
         )
 
     if int(user.telegram_id) not in ADMINS:
