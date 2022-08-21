@@ -12,7 +12,7 @@ class Parser(object):
     pool = None
 
     def __new__(cls, loop):
-        if not hasattr(cls, 'instance'):
+        if not cls.instance:
             cls.instance = super(Parser, cls).__new__(cls)
             cls.pool = {}
             cls.loop = loop
