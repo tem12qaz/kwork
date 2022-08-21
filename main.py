@@ -9,10 +9,10 @@ from parser import Parser
 
 async def on_startup(dp):
     await db_init()
-
-if __name__ == '__main__':
-    loop = asyncio.new_event_loop()
+    loop = asyncio.get_running_loop()
     parser = Parser(loop)
     parser.start()
 
-    executor.start_polling(dp, on_startup=on_startup, loop=loop)
+
+if __name__ == '__main__':
+    executor.start_polling(dp, on_startup=on_startup)
