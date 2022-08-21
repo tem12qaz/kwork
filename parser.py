@@ -36,6 +36,7 @@ class Parser(object):
                 self.pool[user.id] = []
 
         self.pool[user.id] = pool
+        print(pool)
 
     async def parse_users(self):
         users = await TelegramUser.filter(active=True)
@@ -44,6 +45,7 @@ class Parser(object):
 
     async def cycle(self):
         while True:
+            print('CYCLE')
             await self.parse_users()
             await asyncio.sleep(300)
 
