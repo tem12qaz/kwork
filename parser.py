@@ -33,6 +33,10 @@ class Parser(object):
                         url
                     )
             else:
+                await bot.send_message(
+                    user.telegram_id,
+                    url
+                )
                 self.pool[user.id] = []
 
         self.pool[user.id] = pool
